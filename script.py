@@ -1,3 +1,34 @@
+# Updated On Nov 08, 2023.
+"""
+KafkaClient - Class for Kafka Producer and Consumer
+
+This Python class, KafkaClient, encapsulates Kafka producer and consumer functionality using the
+confluent-kafka library. It provides a convenient way to create a Kafka producer and consumer, produce and consume
+messages, and close the Kafka client.
+
+Usage:
+1. Create an instance of KafkaClient with the Kafka broker address and group ID.
+2. Use create_producer() to create a Kafka producer.
+3. Use produce_message() to send messages to a specified Kafka topic.
+4. Use create_consumer() to create a Kafka consumer and subscribe to a topic.
+5. Use consume_messages() to start consuming messages.
+6. Use close() to gracefully close the Kafka client.
+
+Usage:
+if __name__ == '__main__':
+    bootstrap_servers = 'your_kafka_broker_address:9092'
+    topic_name = 'your_topic_name'
+    kafka_client = KafkaClient(bootstrap_servers, 'python-consumer-group')
+    kafka_client.create_producer()
+    kafka_client.produce_message(topic_name, 'key1', 'Hello, Kafka!')
+    kafka_client.create_consumer([topic_name])
+    kafka_client.consume_messages()
+    kafka_client.close()
+
+Author: Yasir Ali
+LinkedIn: https://www.linkedin.com/in/yasirali179/
+"""
+
 from confluent_kafka import Producer, Consumer, KafkaError
 
 
